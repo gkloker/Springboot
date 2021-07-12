@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Template</title>
+</head>
+<body>
+  <header th:fragment="header">
+    <h1>[[#{template.title}]]</h1>
+  </header>
+
+  <footer th:fragment="footer">
+    <p>[[#{template.footer}]]</p>
+  </footer>
+</body>
+</html>
