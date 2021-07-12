@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml" lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Index</title>
 </head>
 <body>
-  <h1>Index</h1>
-  <a th:href="@{/add}">Create User</a>
+  <header th:replace="layout/template :: header"></header>
+  <a th:href="@{/add}">[[#{page.create}]]</a>
   <div th:if="${users != null and !users.empty}">
     <table border="1">
       <tr>
@@ -30,5 +30,7 @@
   <div  th:if="${users == null or users.empty}">
     The list is empty
   </div>
+
+  <footer th:replace="layout/template :: footer"></footer>
 </body>
 </html>

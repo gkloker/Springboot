@@ -1,12 +1,14 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml" lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Data User</title>
 </head>
 <body>
-  <h1>Data User</h1>
-  <a th:href="@{/}">previous page</a><br />
+  <header th:replace="layout/template :: header"></header>
+  <h2>Data User</h2>
+
+  <a th:href="@{/}">[[#{page.previous}]]</a><br />
   <form th:action="@{/add}" method="post" th:object="${user}">
     <input type="hidden" name="id" th:field="*{id}">
 
@@ -30,5 +32,7 @@
 
     <input type="submit" name="add" value="Add" />
   </form>
+
+  <footer th:replace="layout/template :: footer"></footer>
 </body>
 </html>
