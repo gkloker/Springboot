@@ -11,13 +11,19 @@
     <input type="hidden" name="id" th:field="*{id}">
 
     <label for="firstName">FirstName: </label><br />
-    <input type="text" name="firstName" th:field="*{firstName}"><br />
+    <input type="text" name="firstName" th:field="*{firstName}">
+    <span th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}">First Name is required</span>
+    <br />
 
     <label for="lastName">LastName: </label><br />
-    <input type="text" name="lastName" th:field="*{lastName}"><br />
+    <input type="text" name="lastName" th:field="*{lastName}">
+    <span th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}">Last Name is required</span>
+    <br />
 
     <label for="email">Email: </label><br />
-    <input type="email" name="email" th:field="*{email}"><br />
+    <input type="text" name="email" th:field="*{email}">
+    <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Email is required</span>
+    <br />
 
     <label for="phone">Phone: </label><br />
     <input type="tel" name="phone" th:field="*{phone}"><br /><br />

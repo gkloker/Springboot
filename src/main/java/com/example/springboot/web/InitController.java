@@ -6,8 +6,11 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+
+import javax.validation.Valid;
 
 @Controller
 @Slf4j
@@ -32,10 +35,15 @@ public class InitController {
   }
 
   @PostMapping("/add")
-  public String save(User user) {
-    userService.save(user);
+  public String save(@Valid User user, Errors errors) {
+    if (errors.hasErrors()) {
+      return "add-update";
 
-    return "redirect:/";
+    } else {
+      userService.save(user);
+
+      return "redirect:/";
+    }
   }
 
   @GetMapping("/edit/{id}")
